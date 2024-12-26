@@ -94,6 +94,8 @@ console.log(index)
 
 let str="special offer in klm "
 console.log(str.repeat(3));
+// let seperator=str.repeat(5:"-")
+
 console.log(str.replace("in klm","for chirstamas"))
 
 let aadhar="0982"
@@ -102,8 +104,43 @@ console.log(aadhar1)
 let aadhar2=aadhar.padEnd(12,"x");
 console.log(aadhar2)
 
+let products=["laptop","ac","remote","heater","fridge","earphone","airpods"]
+products.splice(1,0,"tablet","smartphone");
+let products2=products.slice(1,2)
+console.log(products)
 
 
+console.log(products2)
+// Remove items from an array
+products.splice(1,3)//1,2,3 positions removed
+console.log(products)
+// Add items to an array
+let cart = ["Laptop", "Smartphone","hahaha","hehehe"];
+cart.splice(3, 0, "Tablet", "Smartwatch","ac","pods","friedge");
+console.log(cart)
+
+
+//substring
+let flower="lotus flower"
+console.log(flower.substring(2,6))//6th position exclude
+
+let subject="JavaScript"
+console.log(subject.substring(6,1));
+console.log(subject.substring(-6,-1));//empty space
+console.log(subject.substring(-1,-6));//empty space
+
+// : Extract a portion of a string
+let message = "Hello, World!";
+let part1 = message.substr(0, 5);
+console.log(part1)
+
+//tostring
+let number=3456789;
+let l=number.toString()
+console.log(l);
+console.log(typeof(d))
+let arr1=["dfghj","fghj","dfghj"]//array to string
+console.log(arr1.toString())
 
 
 
