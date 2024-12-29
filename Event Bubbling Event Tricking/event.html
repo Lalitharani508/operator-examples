@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>event bubbling & event tricking</title>
+    <style>
+        div{
+            padding:50px;
+            border: 2px solid black
+        }
+        img{
+            width: 100%;
+            
+            height: 80% ;
+        }
+
+    </style>
 </head>
 <body>
+
+
+    <!-- <div>
+        <img src="https://next-images.123rf.com/index/_next/image/?url=https://assets-cdn.123rf.com/index/static/assets/top-section-bg.jpeg&w=3840&q=75" alt="" width="300">
+        <button id="cart">add to cart</button>
+        <button id="buy_now">buy now</button>
+    
+    </div> -->
+    <div id="grand">
+        <div id="parent">
+            <div id="child"></div>
+        </div>
+    </div>
+
+
+    <!-- <button onclick="OTP()">otpGenerate</button> -->
     <script src="./event.js"></script>
 </body>
 </html>
