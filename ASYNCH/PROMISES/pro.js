@@ -111,23 +111,129 @@
 // )
 
 
-let a="hello"
-let b="kartheek"
-let c=0
-var f=false
-const j=new Promise((resolve,reject)=>{
-    if ( a && b && c&& f&& []){
-        setTimeout(() => {
-            resolve("succesfull")
+// let a="hello"
+// let b="kartheek"
+// let c=0
+// var f=false
+// const j=new Promise((resolve,reject)=>{
+//     if ( a && b && c&& f&& []){
+//         setTimeout(() => {
+//             resolve("succesfull")
             
-        }, 4000);
-    }else{
-        setTimeout(()=>{
-            reject("failed")
-        },2000)
+//         }, 4000);
+//     }else{
+//         setTimeout(()=>{
+//             reject("failed")
+//         },2000)
+//     }
+// });
+// j.then(
+//     output=>console.log(output)
+// ).catch(err=>console.log(err)
+// )
+
+// const step1=new Promise((resolve,reject)=>{
+//     try{
+//         if(1){
+//             setTimeout(()=>{
+//                 resolve("successfull!!!---1")
+//             },3000)
+//         }else{
+//             setTimeout(()=>{
+//                 reject("fail!!!---1")
+//             },5000)
+//         }
+//     }
+//     catch(err){
+//         console.log(err);
+        
+//     }
+// })
+
+// step1.then(out=>{
+//     console.log(out);
+    
+// }).catch(res=>{
+//     console.log(res);
+    
+// })
+
+
+// const step2=new Promise((resolve,reject)=>{
+//     try{
+//         if(0){
+//             setTimeout(()=>{
+//                 resolve("successfull!!---2")
+//             },4000)
+//         }else{
+//             setTimeout(()=>{
+//                 reject("failed!!!---2")
+
+//             },2000)
+//         }
+//     }
+//     catch(err){
+//         crossOriginIsolated.log(err)
+        
+//     }
+// })
+// step2.then(res=>{
+//     console.log(res);
+    
+// }).catch((err)=>{
+//     console.log(err);
+    
+
+// })
+
+
+const step3=new Promise((resolve,reject)=>{
+    try{
+        if(1){
+            setTimeout(()=>{
+                resolve("hii")
+            },4000)
+        }else{
+            setTimeout(()=>{
+                reject("hello")
+            },2000)
+        }
+    }
+    catch(err){
+        reject(`errpr at step3 ${err.message}`)
+
     }
 });
-j.then(
-    output=>console.log(output)
-).catch(err=>console.log(err)
-)
+
+
+const step4=new Promise((resolve,reject)=>{
+    try{
+        if(1){
+            setTimeout(()=>{
+                resolve("hii---1")
+            },4000)
+        }else{
+            setTimeout(()=>{
+                reject("hello---1")
+            },2000)
+        }
+    }
+    catch(err){
+        reject(`errpr at step4 ${err.message}`)
+
+    }
+});
+step3.then(res=>{
+    console.log(res)
+    return step4;
+    
+})
+// .then(res=>{
+//     console.log(res);
+//     return step4
+    
+// })
+.catch(err=>{
+    console.log(err);
+    
+})
