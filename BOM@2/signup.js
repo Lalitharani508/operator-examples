@@ -7,7 +7,7 @@ signForm.addEventListener("submit",()=>{
     console.log(pswd);
 
 
-    // localStorage.setItem("user",JSON.stringify({"fname":fn,"lname":ln,"email":ln,"password":pswd}));
+    localStorage.setItem("user",JSON.stringify({"fname":fn,"lname":ln,"email":ln,"password":pswd}));
     location.href="./login.html";
     
 

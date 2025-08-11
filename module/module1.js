@@ -6,6 +6,18 @@ headerPart.style.justifyContent="space-around"
 headerPart.style.alignItems="center"
 
 
+let log1=document.querySelector("#login")
+// log.style.border="2px solid black"
+log1.addEventListener("click",(e)=>{
+e.preventDefault()
+window.location.href="./login.html"
+})
+
+let sign1=document.getElementById("signUp")
+sign1.addEventListener("click",(e)=>{
+  e.preventDefault()
+  location.href="./signup.html"
+})
 
 const data=[
     {
@@ -250,105 +262,73 @@ const data=[
     }
   ]
 
-// let log=document.getElementById("login")
-    
 
 
-// data.forEach(element => {
-//     let module2=document.createElement("div")
-//     module2.innerHTML=`<img src=${data.image} width="200"/>
-//     <h1></>`
-//     document.body.appendChild(module2)
-    
-// });
+let div1=document.getElementById("items")
+div1.style.display="flex"
+div1.style.flexWrap="wrap"
+div1.style.justifyContent="space-around"
+div1.style.alignContent="center"
+div1.style.border="2px solid red"
+// div1.style.margin-top="5px"
+// div1.style.alignItems="center"
+div1.style.gap="20px"
+
+data.forEach(x=>{
+  let card=document.createElement("div")
+  card.className="item"
+  card.innerHTML=`<img src="${x.image}" width="300"/>
+  <h1 class="h1tag">${x.title}</h1>
+  <p class="categoryy">${x.category}</p>
+  <p>${x.price}</p>`
+
+  card.style.border="2px solid black"
+  card.style.width="350px"
+  div1.appendChild(card)
+  addtocart=document.createElement("button")
+  addtocart.textContent="addToCart"
+  card.appendChild(addtocart)
+  bn=document.createElement("button")
+  bn.textContent="BuyNow"
+  card.appendChild(bn)
 
 
+    card.addEventListener("click",()=>{
+      alert("this item is added to cart",x.id)
 
 
-let pro = document.getElementById("items");
-pro.style.border="1px solid black"
-data.forEach((item) => {
-let card = document.createElement("div");
-card.style.border = "2px solid black";
-card.style.margin = "10px";
-card.style.padding = "10px";
-card.style.width = "320px";
-card.style.height="500px"
-card.style.cursor="pointer"
-// card.style.align="center"
+      localStorage.setItem("data",JSON.stringify({"title":x.title,"category":x.category,"image":x.image}))
+      localStorage.setItem("use",JSON.stringify({"ele":card}))
+      
+    })
+    localStorage.href="./one.html"
 
 
-// Create and append the image
-let imgs = document.createElement("img");
-imgs.src = item.image;
-imgs.style.width = "100%";
-imgs.style.height="50%"
-card.appendChild(imgs);
+})
 
-// Create and append the title
-let tit = document.createElement("h4");
-tit.innerText = item.title;
-card.appendChild(tit);
+let a=document.getElementsByClassName("h1tag")
+let b=document.getElementsByClassName("categoryy")
+for(i=0;i<data.length;i++){
+  a[i].style.fontSize="15px"
+  b[i].style.fontSize="30px"
+  b[i].style.fontWeight="bold"
 
-let pr=document.createElement("span")
-pr.innerHTML=item.price;
-pr.style.color="red";
-card.appendChild(pr);
+}
 
-let cat=document.createElement("p")
-cat.innerHTML=item.category;
-cat.style.color="green";
-card.appendChild(cat);
 
-let rat1=document.createElement("p")
-rat1.innerText=item.rating.rate
-card.appendChild(rat1)
+let s=document.getElementById("searchkey")
+s.addEventListener("keydown",function(event){
+  if(event.key==="Enter"){
+    const searchvalue=s.value.trim().toLocaleLowerCase();
+    const items=document.querySelector(".item")
+    items.forEach(x=>{
+      const categoryText=x.querySelector(".categoryy").textContent.toLocaleLowerCase();
+      if(categoryText.startsWith(searchvalue)){
+        x.style.display="block"
+      }else{
+        x.style.display="none"
+      }
+    });
 
-let rat2=document.createElement("p")
-rat2.innerText=item.rating.count
-card.appendChild(rat2)
-
-let add=document.createElement("button")
-
-add.innerText="Add to Cart"
-add.style.width="100px"
-card.appendChild(add)
-let buy=document.createElement("button")
-buy.innerText="Buy Now"
-buy.style.width="100px"
-buy.style.margin="10px"
-card.appendChild(buy)
-
-pro.style.display="flex"
-pro.style.flexWrap="wrap"
-pro.style.justifyContent="space-around"
-pro.appendChild(card);
+  }
 });
-
-// let log=document.querySelector("#login")
-// log.style.border="2px solid black"
-// log.addEventListener("click",(e)=>{
-// e.preventDefault()
-// window.location.href="./login.html"
-// })
-// let btnlog=document.querySelector("#register")
-// btnlog.addEventListener("Submit",(e)=>{
-//   e.preventDefault()
-//   window.location.href="./login.html"
-// })
-// let sign=document.getElementById("signup")
-// sign.addEventListener("submit",(e)=>{
-//   e.preventDefault()
-//   location.href="./login.html"
-// })
-
-// sign.addEventListener("click",(e)=>{
-//   e.preventDefault()
-//   window.location.href="./signup.html"
-//   })
-  
-
-
-let filteredData= data.filter(x=>x.category.toLowerCase().includes("electronics"))
-console.log(filteredData);
-// document.body.append(filteredData)
